@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,6 +20,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        ElevatedButton(
+          onPressed: _signInWithGoogle,
+          child: const Text('Login with Google'),
+        ),
+      ],
+    );
+  }
+
+  Future<void> _signInWithGoogle() async {
+    GoogleSignIn _googleSignIn = GoogleSignIn(
+      scopes: [
+        'email',
+        'https://www.googleapis.com/auth/contacts.readonly',
+      ],
+    );
+    final googleUser = await _googleSignIn.signIn();
+    if (googleUser != null) {
+      final googleAuth = await googleUser.authentication;
+      final idToken = googleAuth.idToken;
+      final accessToken = googleAuth.accessToken;
+      print('idToken: $idToken');
+      print('accessToken: $accessToken');
+    }
   }
 }
