@@ -51,8 +51,15 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.853952300186-70nmsfdb9rrea0p2ete83od4qcubjgai</string>
+				<string>253300382894890</string>
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>253300382894890</string>
+	<key>FacebookClientToken</key>
+	<string>218c4e594763234ea51c58503c0e5c4b</string>
+	<key>FacebookDisplayName</key>
+	<string>Supabase OAuth Test</string>
 </dict>
 </plist>
